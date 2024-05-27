@@ -5,10 +5,10 @@ class CreatePizza extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: Container(
-       
-        height:MediaQuery.of(context).size.width ,
+        width: 500,
+        height: MediaQuery.of(context).size.width,
         color: Colors.orange,
       ),
     );
