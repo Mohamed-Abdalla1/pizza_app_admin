@@ -128,8 +128,7 @@ class _SignInViewState extends State<SignInView> {
                           },
                           style: TextButton.styleFrom(
                               elevation: 3.0,
-                              backgroundColor:
-                                  Theme.of(context).colorScheme.secondary,
+                              backgroundColor: Colors.black,
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(60),
