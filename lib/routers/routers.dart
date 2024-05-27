@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../blocs/authentication_bloc/authentication_bloc.dart';
-import '../screens/auth/auth.dart';
+import '../screens/auth/sign_in_view.dart';
 import '../screens/base/base_view.dart';
 import '../screens/create/create_pizza.dart';
 import '../screens/home/home_view.dart';
