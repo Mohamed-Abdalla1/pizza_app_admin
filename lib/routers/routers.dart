@@ -28,7 +28,7 @@ GoRouter router (AuthenticationBloc authBloc) {
       ShellRoute(
         navigatorKey: _shellNavigationKey,
         builder: (context, state, child) {
-          if(state.fullPath == '/login' || state.fullPath == '/' ) {
+          if(state.fullPath == '/signIn' || state.fullPath == '/' ) {
             return child;
           } else {
             return BlocProvider<SignInBloc>(
@@ -48,7 +48,7 @@ GoRouter router (AuthenticationBloc authBloc) {
             )
           ),
           GoRoute(
-            path: '/login',
+            path: '/signIn',
             builder: (context, state) => BlocProvider<AuthenticationBloc>.value(
               value: BlocProvider.of<AuthenticationBloc>(context),
               child: BlocProvider<SignInBloc>(

@@ -7,7 +7,6 @@ class BaseView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        height: MediaQuery.of(context).size.width,
         color: Colors.brown,
       ),
     );
