@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pizza/components/custom_textField.dart';
-import 'package:pizza/screens/auth/blocs/sign_in/sign_in_bloc.dart';
+
 
 import '../../components/custom_textField.dart';
+import 'blocs/sign_in/sign_in_bloc.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
