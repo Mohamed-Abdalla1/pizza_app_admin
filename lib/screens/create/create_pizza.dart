@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
-import 'package:pizza_app_admin/screens/create/blocs/bloc/upload_image_bloc.dart';
+import 'package:pizza_app_admin/screens/create/blocs/upload_pizza/upload_image_bloc.dart';
 import 'package:pizza_repository/pizza_repository.dart';
 
 import '../../components/custom_textField.dart';

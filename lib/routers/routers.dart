@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pizza_app_admin/screens/create/blocs/bloc/upload_image_bloc.dart';
+import 'package:pizza_app_admin/screens/create/blocs/upload_pizza/upload_image_bloc.dart';
 import 'package:pizza_repository/pizza_repository.dart';
 
 import '../blocs/authentication_bloc/authentication_bloc.dart';
