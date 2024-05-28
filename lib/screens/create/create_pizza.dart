@@ -1,6 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:pizza_app_admin/components/custom_textField.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pizza_repository/pizza_repository.dart';
+
+import '../../components/custom_textField.dart';
+import '../../components/macro.dart';
 
 class CreatePizza extends StatefulWidget {
   const CreatePizza({super.key});
@@ -185,74 +190,169 @@ class _CreatePizzaState extends State<CreatePizza> {
                           const SizedBox(
                             width: 10,
                           ),
-                          InkWell(
-                            borderRadius: BorderRadius.circular(100),
-                            onTap: () {
-                              setState(() {
-                                pizzaModel.spicy == 1;
-                              });
-                            },
-                            child: Ink(
-                              width: 20,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: pizzaModel.spicy == 1
-                                    ? Border.all(width: 2)
-                                    : null,
-                                color: Colors.green,
+                          Row(
+                            children: [
+                              InkWell(
+                                borderRadius: BorderRadius.circular(100),
+                                onTap: () {
+                                  setState(() {
+                                    pizzaModel.spicy = 1;
+                                  });
+                                },
+                                child: Ink(
+                                  width: 20,
+                                  height: 20,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: pizzaModel.spicy == 1
+                                        ? Border.all(width: 2)
+                                        : null,
+                                    color: Colors.green,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          InkWell(
-                            borderRadius: BorderRadius.circular(100),
-                            onTap: () {
-                              setState(() {
-                                pizzaModel.spicy == 2;
-                              });
-                            },
-                            child: Ink(
-                              width: 20,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: pizzaModel.spicy == 2
-                                    ? Border.all(width: 2)
-                                    : null,
-                                color: Colors.orange,
+                              const SizedBox(
+                                width: 8,
                               ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          InkWell(
-                            borderRadius: BorderRadius.circular(100),
-                            onTap: () {
-                              setState(() {
-                                pizzaModel.spicy == 3;
-                              });
-                            },
-                            child: Ink(
-                              width: 20,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: pizzaModel.spicy == 3
-                                    ? Border.all(width: 2)
-                                    : null,
-                                color: Colors.redAccent,
+                              InkWell(
+                                borderRadius: BorderRadius.circular(100),
+                                onTap: () {
+                                  setState(() {
+                                    pizzaModel.spicy = 2;
+                                  });
+                                },
+                                child: Ink(
+                                  width: 20,
+                                  height: 20,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: pizzaModel.spicy == 2
+                                        ? Border.all(width: 2)
+                                        : null,
+                                    color: Colors.orange,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 8,
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              InkWell(
+                                borderRadius: BorderRadius.circular(100),
+                                onTap: () {
+                                  setState(() {
+                                    pizzaModel.spicy = 3;
+                                  });
+                                },
+                                child: Ink(
+                                  width: 20,
+                                  height: 20,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: pizzaModel.spicy == 3
+                                        ? Border.all(width: 2)
+                                        : null,
+                                    color: Colors.redAccent,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
-                      )
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text('Macro :'),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      SizedBox(
+                        width: 300,
+                        child: Row(
+                          children: [
+                            MyMacro(
+                              icon: FontAwesomeIcons.fire,
+                              title: 'Calories',
+                              value: pizzaModel.macros.calories,
+                              controller: caloriesController,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            MyMacro(
+                              icon: FontAwesomeIcons.dumbbell,
+                              title: 'Protien',
+                              value: pizzaModel.macros.proteins,
+                              controller: proteinsController,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            MyMacro(
+                              icon: FontAwesomeIcons.oilWell,
+                              title: 'Fats',
+                              value: pizzaModel.macros.fat,
+                              controller: fatController,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            MyMacro(
+                              icon: FontAwesomeIcons.breadSlice,
+                              title: 'Carbs',
+                              value: pizzaModel.macros.carbs,
+                              controller: carbsController,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      !creationRequired
+                          ? SizedBox(
+                              width: 300,
+                              child: TextButton(
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    setState(() {
+                                      pizzaModel.name = nameController.text;
+                                      pizzaModel.desc = descController.text;
+                                      pizzaModel.price =
+                                          int.parse(priceController.text);
+                                      pizzaModel.discount =
+                                          int.parse(discountController.text);
+                                      pizzaModel.macros.calories =
+                                          int.parse(caloriesController.text);
+                                      pizzaModel.macros.proteins =
+                                          int.parse(proteinsController.text);
+                                      pizzaModel.macros.fat =
+                                          int.parse(fatController.text);
+                                      pizzaModel.macros.carbs =
+                                          int.parse(carbsController.text);
+                                    });
+                                    log(pizzaModel.toString());
+                                  }
+                                },
+                                style: TextButton.styleFrom(
+                                  elevation: 3.0,
+                                  backgroundColor: Colors.black,
+                                  foregroundColor: Colors.white,
+                                ),
+                                child: const Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 25, vertical: 5),
+                                  child: Text(
+                                    'Create Pizza',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                              ),
+                            )
+                          : const CircularProgressIndicator(),
                     ],
                   ),
                 )

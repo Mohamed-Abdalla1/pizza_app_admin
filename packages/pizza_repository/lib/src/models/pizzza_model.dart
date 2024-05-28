@@ -1,23 +1,21 @@
-
-
 import 'package:uuid/uuid.dart';
 
 import '../entities/entity.dart';
 import 'models.dart';
 
 class PizzaModel {
-final  String? pizzaId;
-final  String? name;
-final  String? image;
+  final String? pizzaId;
+  String? name;
+  final String? image;
   bool isVeg;
   int spicy;
-final  String? desc;
- final int price;
- final int discount;
-final  Macros macros;
+  String? desc;
+  int price;
+  int discount;
+  Macros macros;
   PizzaModel({
-   required  this.pizzaId,
-  required   this.name,
+    required this.pizzaId,
+    required this.name,
     required this.image,
     required this.isVeg,
     required this.spicy,
@@ -27,8 +25,8 @@ final  Macros macros;
     required this.macros,
   });
 
- static var empty = PizzaModel(
-		pizzaId: const Uuid().v1(),
+  static var empty = PizzaModel(
+    pizzaId: const Uuid().v1(),
     image: '',
     isVeg: false,
     spicy: 1,
@@ -37,9 +35,7 @@ final  Macros macros;
     price: 0,
     discount: 0,
     macros: Macros.empty,
-	);
-
-
+  );
 
   PizzaEntity toEntity() {
     return PizzaEntity(
@@ -66,9 +62,21 @@ final  Macros macros;
       discount: pizzaEntity.discount,
       desc: pizzaEntity.desc,
       macros: pizzaEntity.macros,
-
     );
   }
 
-  
+  @override
+  String toString() {
+    return '''
+    pizzaId: $pizzaId,
+    image: $image,
+    isVeg: $isVeg,
+    spicy: $spicy,
+    name: $name,
+    desc: $desc,
+    price: $price,
+    discount: $discount,
+    macros: $macros,
+    ''';
+  }
 }
