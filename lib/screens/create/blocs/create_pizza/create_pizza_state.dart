@@ -11,10 +11,6 @@ final class CreatePizzaInitial extends CreatePizzaState {}
 
 final class CreatePizzaLoading extends CreatePizzaState {}
 
-final class CreatePizzaSuccess extends CreatePizzaState {
-  final PizzaModel pizzaModel;
-
- const CreatePizzaSuccess({required this.pizzaModel});
-}
+final class CreatePizzaSuccess extends CreatePizzaState {}
 
 final class CreatePizzaFailure extends CreatePizzaState {}

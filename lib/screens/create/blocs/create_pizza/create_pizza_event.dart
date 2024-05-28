@@ -7,8 +7,8 @@ sealed class CreatePizzaEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class CreatePizzaRequired {
+class CreatePizzaRequired  extends CreatePizzaEvent{
   final PizzaModel pizzaModel;
 
-  CreatePizzaRequired({required this.pizzaModel});
+ const CreatePizzaRequired({required this.pizzaModel});
 }
