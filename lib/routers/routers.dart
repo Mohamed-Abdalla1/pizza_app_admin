@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pizza_app_admin/screens/create/blocs/create_pizza/create_pizza_bloc.dart';
 import 'package:pizza_app_admin/screens/create/blocs/upload_pizza/upload_image_bloc.dart';
 import 'package:pizza_repository/pizza_repository.dart';
 
@@ -66,8 +67,11 @@ GoRouter router(AuthenticationBloc authBloc) {
               GoRoute(
                 path: '/create',
                 builder: (context, state) => BlocProvider(
-                  create: (context) => UploadImageBloc(FirebasePizzaRepo()),
-                  child: const CreatePizza(),
+                  create: (context) => CreatePizzaBloc(FirebasePizzaRepo()),
+                  child: BlocProvider(
+                    create: (context) => UploadImageBloc(FirebasePizzaRepo()),
+                    child: const CreatePizza(),
+                  ),
                 ),
               )
             ])
