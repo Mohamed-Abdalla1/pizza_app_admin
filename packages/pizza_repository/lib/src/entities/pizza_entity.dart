@@ -5,7 +5,7 @@ import '../models/macros.dart';
 class PizzaEntity {
  final String? pizzaId;
  final String? name;
- final String? image;
+  String image;
   bool isVeg;
   int spicy;
  final String? desc;

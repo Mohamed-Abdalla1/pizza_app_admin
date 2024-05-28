@@ -6,7 +6,7 @@ import 'models.dart';
 class PizzaModel {
   final String? pizzaId;
   String? name;
-  final String? image;
+   String image;
   bool isVeg;
   int spicy;
   String? desc;
