@@ -1,5 +1,7 @@
 
 
+import 'package:uuid/uuid.dart';
+
 import '../entities/entity.dart';
 import 'models.dart';
 
@@ -7,8 +9,8 @@ class PizzaModel {
 final  String? pizzaId;
 final  String? name;
 final  String? image;
-final  bool isVeg;
-final  int spicy;
+  bool isVeg;
+  int spicy;
 final  String? desc;
  final int price;
  final int discount;
@@ -24,6 +26,20 @@ final  Macros macros;
     required this.desc,
     required this.macros,
   });
+
+ static var empty = PizzaModel(
+		pizzaId: const Uuid().v1(),
+    image: '',
+    isVeg: false,
+    spicy: 1,
+    name: '',
+    desc: '',
+    price: 0,
+    discount: 0,
+    macros: Macros.empty,
+	);
+
+
 
   PizzaEntity toEntity() {
     return PizzaEntity(

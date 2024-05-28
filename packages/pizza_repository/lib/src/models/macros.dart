@@ -14,7 +14,12 @@ class Macros {
       required this.fat,
       required this.carbs});
 
-
+ static final empty = Macros(
+		calories: 0,
+    proteins: 0,
+    fat: 0,
+    carbs: 0,
+	);
   MacrosEntity toEntity() {
     return MacrosEntity(
       calories: calories,

@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class CustomTextfield extends StatelessWidget {
@@ -43,15 +41,14 @@ class CustomTextfield extends StatelessWidget {
           prefixIcon: prefixIcon,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: const BorderSide(color: Colors.transparent),
+            borderSide: const BorderSide(color: Colors.white),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
-            borderSide:
-                BorderSide(color: Theme.of(context).colorScheme.secondary),
+            borderSide:const BorderSide(color: Colors.white),
           ),
           hintText: hintText,
-          fillColor: Colors.grey.shade200,
+          fillColor: Colors.white,
           filled: true,
           errorText: errorText),
     );
